@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $usuario = "root";
-$senha = "";
+$senha = "Aluno1234";
 $db = "tmdb_filmes";
 
 try {
