@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Filmes Populares</title>
 </head>
 
 <body>
 
     <h1>Filmes Populares</h1>
-
-    <br>
 
     <div id="filmes-container">
         <?php
@@ -23,7 +21,7 @@
 
             echo '<div class="filme">';
             echo '<h2>' . $titulo . '</h2>';
-            echo '<img src="' . $poster . '"alt="' . $titulo . '">';
+            echo '<img src="' . $poster . '" alt="' . $titulo . '">';
             echo '<p>' . $descricao . '</p>';
             echo '</div>';
         }
