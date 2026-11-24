@@ -4,17 +4,17 @@ require_once 'config.php';
 
 function importarFilmesAPI($api_key)
 {
-    $url = "http://api.themoviedb.org/3/movie/popular?api_key=$api_key&language=pt-BR";
+    $url = "https://api.themoviedb.org/3/movie/popular?api_key=$api_key&language=pt-BR";
 
-    $resposta = file_get_contents($url);
-    $dados = json_decode($resposta, true);
+    $resposta = @file_get_contents($url, false, stream_context_create(['http' => ['timeout' => 2]]));
+    $dados = json_decode((string)$resposta, true);
 
     global $pdo;
 
-    foreach ($dados['results'] as $filme) {
+    foreach ($dados['results'] ?? [] as $filme) {
         $titulo = $filme['title'];
         $descricao = $filme['overview'];
-        $poster = "http://image.tmdb.org/t/p/w500" . $filme['poster_path'];
+        $poster = "https://image.tmdb.org/t/p/w500" . $filme['poster_path'];
 
         salvarFilme($titulo, $descricao, $poster);
     };
