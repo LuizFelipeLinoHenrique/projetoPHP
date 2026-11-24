@@ -1,6 +1,6 @@
 <?php
 if (realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
-    header('Location: ../index.php', true, 302);
+    header('Location: ../catalogo.php', true, 302);
     exit;
 }
 
